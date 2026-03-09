@@ -1,0 +1,25 @@
+# LangChain
+langchain
+langchain-openai
+langchain-community
+langchain-experimental
+
+# PDF 처리
+pypdf
+PyMuPDF
+pdf2image
+
+# 벡터스토어
+faiss-cpu
+
+# ML (표 감지)
+torch
+transformers
+timm
+
+# 유틸
+python-dotenv
+pydantic
+tqdm
+
+# tkinter는 Python 기본 내장 (별도 설치 불필요)
