@@ -24,7 +24,7 @@ REWRITE_PROMPT = ChatPromptTemplate.from_messages([
 - 영어 용어 → 한국어 번역 추가 (예: attention → 어텐션)
 - 약어 → 전체 표현 추가 (예: FFN → Feed Forward Network)
 - 전체 표현 → 약어 추가 (예: Feed Forward Network → FFN)
-- 표/그림 번호는 공백 유무 모두 포함 (예: 표1, 표 1, Table1, Table 1)
+- 표/그림 번호는 한국어·영어·공백 유무 모두 포함 (예: 표1, 표 1, 테이블1, 테이블 1, Table1, Table 1)
 - 원본 질문의 의미는 유지
 - 추가 설명 없이 확장된 쿼리 문자열만 출력"""
     ),
