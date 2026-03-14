@@ -5,19 +5,29 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, filedialog, scrolledtext, messagebox
 
-# ── LangChain 모듈 경로 등록 ────────────────────────────────────────────────────
-LANGCHAIN_DIR = Path(__file__).resolve().parent.parent / "LangChain"
-sys.path.insert(0, str(LANGCHAIN_DIR))
+# ── App 모듈 경로 등록 (개발/빌드/exe 공통) ───────────────────────────────────────
+def _get_app_dir() -> Path:
+    """개발 환경과 PyInstaller exe 환경 모두 지원"""
+    if getattr(sys, "frozen", False):
+        # exe로 실행 중: exe 파일이 있는 폴더 기준
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent
+
+
+APP_DIR = _get_app_dir()
+if str(APP_DIR) not in sys.path:
+    sys.path.insert(0, str(APP_DIR))
 
 from dotenv import load_dotenv
-load_dotenv(dotenv_path=LANGCHAIN_DIR / ".env")
+load_dotenv(dotenv_path=APP_DIR / ".env")
 
 from loaders.loader import load_pdf, split_documents
 from utils.vectorstore import create_vectorstore
 from chains.qa_chain import create_qa_chain
 
-TABLE_DIR = str(LANGCHAIN_DIR / "data" / "extracted_tables")
-IMG_DIR   = str(LANGCHAIN_DIR / "data" / "extracted_images")
+DATA_DIR = APP_DIR / "data"
+TABLE_DIR = str(DATA_DIR / "extracted_tables")
+IMG_DIR   = str(DATA_DIR / "extracted_images")
 
 # ── 폰트 (Windows 한글) ──────────────────────────────────────────────────────────
 F_NORMAL = ("맑은 고딕", 11)

@@ -1,12 +1,11 @@
-import torch
 import os
+import torch
 import fitz
 from PIL import Image
 from transformers import DetrImageProcessor, TableTransformerForObjectDetection
 from tqdm import tqdm
-from config import Config
 
-config = Config()
+from config import config
 
 
 def pdf_to_images(pdf_path, dpi=300):

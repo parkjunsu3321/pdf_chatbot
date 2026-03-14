@@ -4,9 +4,9 @@ import re
 from openai import OpenAI
 from tqdm import tqdm
 from langchain_core.documents import Document
-from config import Config
 
-config = Config()
+from config import config
+
 client = OpenAI(api_key=config.OPENAI_API_KEY)
 
 

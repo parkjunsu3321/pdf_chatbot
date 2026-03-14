@@ -2,10 +2,9 @@ import re
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableLambda
-from prompts.templates import QA_PROMPT, REWRITE_PROMPT
-from config import Config
 
-config = Config()
+from config import config
+from prompts.templates import QA_PROMPT, REWRITE_PROMPT
 
 
 def format_docs(docs):

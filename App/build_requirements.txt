@@ -1,0 +1,2 @@
+# exe 빌드용 (기존 requirements.txt + PyInstaller)
+pyinstaller>=6.0.0

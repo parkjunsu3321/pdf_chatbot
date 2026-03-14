@@ -2,12 +2,11 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_openai import OpenAIEmbeddings
-from loaders.extract_tables import TableExtractor
-from loaders.img_extraction import ImageExtractor
-from loaders.img_description import get_table_documents, get_image_descriptions
-from config import Config
 
-config = Config()
+from .extract_tables import TableExtractor
+from .img_extraction import ImageExtractor
+from .img_description import get_table_documents, get_image_descriptions
+from config import config
 
 
 def load_pdf(file_path: str, table_dir="./data/extracted_tables", img_dir="./data/extracted_images"):

@@ -1,8 +1,8 @@
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
-from config import Config
 
-config = Config()
+from config import config
+
 
 def create_vectorstore(chunks):
     embeddings = OpenAIEmbeddings(model=config.EMBEDDING_MODEL)
